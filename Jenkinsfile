@@ -1,12 +1,12 @@
 pipeline {
     agent any
     environment {
-        IMAGE_NAME = "your-dockerhub-username/myapp"
+        IMAGE_NAME = "ky270405/myapp"
     }
     stages {
         stage('Clone Source') {
             steps {
-                git 'https://github.com/your-github-username/my-app.git'
+                git 'https://github.com/27Khushiyadav/my-app.git'
             }
         }
         stage('Build Docker Image') {
@@ -17,7 +17,7 @@ pipeline {
         stage('Login to Docker Hub') {
             steps {
                 withCredentials([string(credentialsId: 'dockerhub-token', variable: 'DOCKER_TOKEN')]) {
-                    sh 'echo $DOCKER_TOKEN | docker login -u your-dockerhub-username --password-stdin'
+                    sh 'echo $DOCKER_TOKEN | docker login -u ky270405 --password-stdin'
                 }
             }
         }
