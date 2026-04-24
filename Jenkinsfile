@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Clone Source') {
             steps {
-                git 'https://github.com/27Khushiyadav/my-app.git'
+                git branch: 'main', url: 'https://github.com/27Khushiyadav/my-app.git'
             }
         }
         stage('Build Docker Image') {
